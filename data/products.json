@@ -1,5 +1,4 @@
-{
-  "products" : [
+[
   {
     "id": "001",
     "name": "Hatsune Miku Sakura Bloom Face Wash",
@@ -89,4 +88,3 @@
     "tags": ["hand cream", "snow miku", "winter", "hydrating"]
   }
 ]
-}
