@@ -13,7 +13,7 @@ with open("data/products.json",'r') as f:
 def setData():
     for i in data:
         documentIds.append(i['id'])
-        docs.append(f"{i["name"]} is a {i["product_type"]} made by {i['brand']}.It belongs to the {i['category']} category.Description: {i['description']}")
+        docs.append(f"{i["name"]} is a {i["product_type"]} made by {i['brand']}.It belongs to the {i['category']} category.Description: {i['description']}.Skin Type: {i.get('skin_type', 'N/A')}.Hair Type: {i.get('hair_type', 'N/A')}")
         metaDatas.append(
             {"name":i["name"],
              'brand':i['brand'],
@@ -35,12 +35,23 @@ collection.add(
     ids = documentIds
 )
 
-##get results
-results = collection.query(
-    query_texts=["hydrating skincare", "products for damaged hair", "vitamin c serum", "refreshing face mist", "Hatsune Miku", "winter hand cream", "oily hair shampoo"],
-    n_results=3
-)
+ ##Actual testing function
 
-##print results
-for x in results['ids']:
-    print(x, end='\n\n')
+def Testing():
+    query = input("What r u looking for??: ")
+
+    if query=='exit':
+        return 0
+
+    results = collection.query(
+        query_texts=[query],
+        n_results=3
+    )
+
+    for x in results['ids']:
+        print(x, end='\n\n')
+    
+    return 1
+
+##Testing loop
+while Testing() != 0:pass
