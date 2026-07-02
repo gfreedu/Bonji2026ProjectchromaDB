@@ -1,0 +1,92 @@
+{
+  "products" : [
+  {
+    "id": "001",
+    "name": "Hatsune Miku Sakura Bloom Face Wash",
+    "brand": "Crypton Beauty",
+    "category": "Skincare",
+    "product_type": "Face Wash",
+    "description": "A gentle cherry blossom face wash inspired by Hatsune Miku. Suitable for normal and combination skin.",
+    "skin_type": "Combination",
+    "price": 12.99,
+    "tags": ["anime", "vocaloid", "face wash", "cherry blossom", "miku"]
+  },
+  {
+    "id": "002",
+    "name": "Hatsune Miku Aqua Moisturizer",
+    "brand": "Crypton Beauty",
+    "category": "Skincare",
+    "product_type": "Moisturizer",
+    "description": "A lightweight moisturizer with hyaluronic acid that keeps skin hydrated throughout the day.",
+    "skin_type": "Dry",
+    "price": 18.50,
+    "tags": ["moisturizer", "hydrating", "vocaloid", "miku"]
+  },
+  {
+    "id": "003",
+    "name": "Megurine Luka Rose Hair Serum",
+    "brand": "VocaCare",
+    "category": "Haircare",
+    "product_type": "Hair Serum",
+    "description": "Rose-scented serum that smooths frizz and adds shine to damaged hair.",
+    "hair_type": "Damaged",
+    "price": 16.75,
+    "tags": ["hair serum", "rose", "luka", "vocaloid"]
+  },
+  {
+    "id": "004",
+    "name": "Kagamine Rin Citrus Shampoo",
+    "brand": "VocaCare",
+    "category": "Haircare",
+    "product_type": "Shampoo",
+    "description": "Refreshing citrus shampoo designed for oily hair with a deep-cleansing formula.",
+    "hair_type": "Oily",
+    "price": 11.99,
+    "tags": ["shampoo", "rin", "citrus", "vocaloid"]
+  },
+  {
+    "id": "005",
+    "name": "Kagamine Len Repair Conditioner",
+    "brand": "VocaCare",
+    "category": "Haircare",
+    "product_type": "Conditioner",
+    "description": "Protein-rich conditioner that repairs split ends and strengthens brittle hair.",
+    "hair_type": "Damaged",
+    "price": 13.49,
+    "tags": ["conditioner", "len", "repair", "vocaloid"]
+  },
+  {
+    "id": "006",
+    "name": "KAITO Ice Mint Face Mist",
+    "brand": "BlueNote Cosmetics",
+    "category": "Skincare",
+    "product_type": "Face Mist",
+    "description": "Cooling peppermint face mist that refreshes tired skin during hot weather.",
+    "skin_type": "All",
+    "price": 10.99,
+    "tags": ["face mist", "kaito", "cooling", "peppermint"]
+  },
+  {
+    "id": "007",
+    "name": "MEIKO Berry Glow Serum",
+    "brand": "BlueNote Cosmetics",
+    "category": "Skincare",
+    "product_type": "Serum",
+    "description": "Vitamin C serum with berry extracts that brightens dull skin and reduces dark spots.",
+    "skin_type": "Normal",
+    "price": 21.99,
+    "tags": ["serum", "vitamin c", "meiko", "brightening"]
+  },
+  {
+    "id": "008",
+    "name": "Snow Miku Winter Hand Cream",
+    "brand": "Crypton Beauty",
+    "category": "Skincare",
+    "product_type": "Hand Cream",
+    "description": "Rich hand cream with shea butter that protects dry hands during winter.",
+    "skin_type": "Dry",
+    "price": 9.99,
+    "tags": ["hand cream", "snow miku", "winter", "hydrating"]
+  }
+]
+}
