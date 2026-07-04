@@ -88,13 +88,13 @@ class vector_data_base:
             query = input("What r u looking for??: ")
 
             if query=='exit':
-                exit
+                break
 
             results = self.collection.query(
                 query_texts=[query],
-                n_results=input("how many?: ")
+                n_results=int(input("how many?: "))
             )
 
             for x in results['documents']:
-                print(x, end='\n\n')
+                output_test_file(loop_lists(x))
 
