@@ -3,10 +3,6 @@ import json
 #include <im sorry if i do something stupid like putting brackets in expression or semi colons, yes i was a die hard c++ fan
 #also import annoyed human noises 
 
-docs = []
-metaDatas = []
-documentIds = []
-
 #Functions looping through dictionaries and adding them to docs folder.
 def loop_dictionary(dictionary, previousText):
     for key,element in dictionary.items():
@@ -44,58 +40,61 @@ def output_test_file(t):
         f.write(str(text))
     f.close()
 
-#Opening and reading data
-with open("data/Product Information.json",'r') as f:
-    data = json.load(f)
-#Getting data from data and putting it in variables for collection.add
-def setData():
-    id_count = 0
-    for element in data:
-        id_count += 1
-        documentIds.append('id' + str(id_count))
 
-        docs.append(loop_dictionary(element,""))
+class vector_data_base:
+    def __init__(self,filePath):
+        self.docs = []
+        self.metaDatas = []
+        self.documentIds = []
+        with open(filePath,'r') as f:
+            self.data = json.load(f)
+        
+        #running chromadb client(on memory)
+        self.chroma_client = chromadb.Client()
 
-        metaDatas.append(
-            {"name":element["product_name"],
-             'ingredients':loop_lists(element['full_ingredient_list'],''),
-             'solves':loop_lists(element['recommended_for'],''),
-             'details':loop_dictionary(element['product_details'],''),
-             })
+        self.collection = self.chroma_client.create_collection(name="googoogaagas")
 
-setData()
+    def setupDataSetVariables(self):
+        id_count = 0
 
-output_test_file(docs)
+        for element in self.data:
+            id_count += 1
+            self.documentIds.append('id' + str(id_count))
 
+            self.docs.append(loop_dictionary(element,""))
 
-#running chromadb client(on memory)
-chroma_client = chromadb.Client()
-
-collection = chroma_client.create_collection(name="googoogaagas")
-
-collection.add(
-    documents = docs,
-    metadatas = metaDatas,
-    ids = documentIds
-)
-
- #Actual testing function
-
-def Testing():
-    query = input("What r u looking for??: ")
-
-    if query=='exit':
-        return 0
-
-    results = collection.query(
-        query_texts=[query],
-        n_results=input("how many?: ")
-    )
-
-    for x in results['documents']:
-        print(x, end='\n\n')
+            self.metaDatas.append(
+                {"name":element["product_name"],
+                'ingredients':loop_lists(element['full_ingredient_list'],''),
+                'solves':loop_lists(element['recommended_for'],''),
+                'details':loop_dictionary(element['product_details'],''),
+                })
     
-    return True
+    def setupCollection(self):
+        self.collection.add(
+            documents = self.docs,
+            metadatas = self.metaDatas,
+            ids = self.documentIds
+        )
 
-#Testing loop
-while Testing():pass
+    def searchResults(self,query,amount):
+        results = self.collection.query(
+            query_texts=[query],
+            n_results=input(amount)
+        )
+    
+    def testing(self):
+        while True:
+            query = input("What r u looking for??: ")
+
+            if query=='exit':
+                exit
+
+            results = self.collection.query(
+                query_texts=[query],
+                n_results=input("how many?: ")
+            )
+
+            for x in results['documents']:
+                print(x, end='\n\n')
+
