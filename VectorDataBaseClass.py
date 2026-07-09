@@ -80,8 +80,9 @@ class vector_data_base:
     def searchResults(self,query,amount):
         results = self.collection.query(
             query_texts=[query],
-            n_results=input(amount)
+            n_results=amount
         )
+        return results
     
     def testing(self):
         while True:
